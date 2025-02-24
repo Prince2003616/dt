@@ -19,7 +19,6 @@ const Header = () => {
                 height={50}
                 className="mb-1" // Added spacing below image
               />
-             <span className="text-xs text-gray-500">DECISION TREE SOLUTIONS</span>
             </a>
           </Link>
         </div>
@@ -30,7 +29,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search here.."
-              className="block w-full pl-4 pr-10 py-2 text-gray-900 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-[#B126B1] focus:border-[#B126B1] sm:text-sm"
+              className="block w-full pl-4 pr-10 py-2 text-gray-900 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
             />
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                <svg className="h-5 w-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -43,23 +42,23 @@ const Header = () => {
         {/* Navigation Links */}
         <nav className="space-x-3 md:space-x-5 flex items-center"> {/* Reduced space-x */}
           <Link href="/courses" legacyBehavior>
-            <a className="text-[#B126B1] hover:text-[#801A80] transition-colors">Courses</a>
+            <a className="text-black hover:text-yellow-500 transition-colors">Courses</a>
           </Link>
           <Link href="/iscience" legacyBehavior>
-            <a className="text-[#B126B1] hover:text-[#801A80] transition-colors">iScience</a>
+            <a className="text-black hover:text-yellow-500 transition-colors">iScience</a>
           </Link>
           <Link href="/about" legacyBehavior>
-            <a className="text-[#B126B1] hover:text-[#801A80] transition-colors">About Us</a>
+            <a className="text-black hover:text-yellow-500 transition-colors">About Us</a>
           </Link>
           <div className="relative">
-            <button className="text-[#B126B1] hover:text-[#801A80] transition-colors flex items-center" >
+            <button className="text-black hover:text-yellow-500 transition-colors flex items-center" >
               More
               <svg className="fill-current h-4 w-4 ml-1" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
             </button>
             {/* Add dropdown menu here if needed */}
           </div>
           <Link href="/login" legacyBehavior>
-            <a className="text-[#B126B1] hover:text-[#801A80] transition-colors">Login</a>
+            <a className="text-black hover:text-yellow-500 transition-colors">Login</a>
           </Link>
         </nav>
       </div>

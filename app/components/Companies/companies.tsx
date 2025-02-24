@@ -40,7 +40,7 @@ const PartnersSection = () => {
     <div className="bg-gray-50 py-16">
       <div className="container mx-auto text-center">
         {/* Learning Partner */}
-        <h2 className="text-3xl font-semibold mb-8 text-black">
+        <h2 className="text-3xl font-semibold mb-8 text-yellow-500">
           Learning Partners
         </h2>
         <div className="flex justify-center space-x-8 mb-12">
@@ -49,7 +49,7 @@ const PartnersSection = () => {
         </div>
 
         {/* In Association With Image Slider */}
-        <h2 className="text-3xl font-semibold mb-8 text-black">
+        <h2 className="text-3xl font-semibold mb-8 text-yellow-500">
           In Association With
         </h2>
         <div className="flex justify-center items-center overflow-hidden py-6">
@@ -82,7 +82,7 @@ const PartnersSection = () => {
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           {numberData.map((item, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-[#d946ef] hover:text-white">
+            <div key={index} className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-500 hover:text-white">
               <div className="text-4xl font-bold text-gray-800">
                 <CountUp end={item.value} duration={3} />+
               </div>

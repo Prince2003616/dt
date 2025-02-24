@@ -58,6 +58,7 @@ interface CertificationCategory {
 }
 
 export interface CertificationData {
+  CertificationPartner: { partnerId: number; };
   certificationId: number;
   certificateCourseId: number;
   slug: string;

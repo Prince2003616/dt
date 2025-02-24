@@ -20,7 +20,7 @@ const CategorySection = () => {
     <div className="bg-white py-12">
       <div className="container mx-auto text-center">
 
-        <h2 className="text-3xl font-semibold mb-8 text-black">
+        <h2 className="text-3xl font-semibold mb-8 text-yellow-500">
           {displayText}
         </h2>
 

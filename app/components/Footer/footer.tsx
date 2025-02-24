@@ -20,20 +20,19 @@ const Footer = () => {
                                 height={50} // Adjust as needed
                                 className="mb-2" // Increased mb
                             />
-                            <span className="text-xs text-gray-500">DECISION TREE SOLUTIONS</span>
                         </a>
                     </Link>
                 </div>
 
                 {/* Quick Links */}
                 <div className="w-1/4"> {/* Adjust width as needed */}
-                    <h3 className="text-lg font-semibold mb-4">Quick Link</h3> {/* Increased mb */}
+                    <h3 className="text-lg font-semibold mb-4 text-yellow-500">Quick Link</h3> {/* Increased mb */}
                     <ul className="space-y-2"> {/* Increased space-y */}
-                        <li><Link href="/courses" legacyBehavior><a className="hover:text-[#B126B1]">Courses</a></Link></li>
-                        <li><Link href="/iscience" legacyBehavior><a className="hover:text-[#B126B1]">iScience</a></Link></li>
-                        <li><Link href="/about" legacyBehavior><a className="hover:text-[#B126B1]">About Us</a></Link></li>
-                        <li><Link href="/more" legacyBehavior><a className="hover:text-[#B126B1]">More</a></Link></li>
-                        <li><Link href="/login" legacyBehavior><a className="hover:text-[#B126B1]">Login</a></Link></li>
+                        <li><Link href="/courses" legacyBehavior><a className="hover:text-yellow-500">Courses</a></Link></li>
+                        <li><Link href="/iscience" legacyBehavior><a className="hover:text-yellow-500">iScience</a></Link></li>
+                        <li><Link href="/about" legacyBehavior><a className="hover:text-yellow-500">About Us</a></Link></li>
+                        <li><Link href="/more" legacyBehavior><a className="hover:text-yellow-500">More</a></Link></li>
+                        <li><Link href="/login" legacyBehavior><a className="hover:text-yellow-500]">Login</a></Link></li>
                     </ul>
                 </div>
 
@@ -41,7 +40,7 @@ const Footer = () => {
                 <div className="flex items-start w-1/2 justify-end"> {/* Aligned Join Us and Reach Us + Width control */}
                     {/* Join Us - Social Icons */}
                     <div className="mr-12"> {/* Increased mr */}
-                        <h3 className="text-lg font-semibold mb-4">Join Us</h3> {/* Increased mb */}
+                        <h3 className="text-lg font-semibold mb-4 text-yellow-500">Join Us</h3> {/* Increased mb */}
                         <div className="flex space-x-4"> {/* Increased space-x */}
                             <a href="#" className="bg-blue-700 hover:bg-blue-600 text-white rounded-full p-3"> {/* Increased p */}
                                 <FaLinkedin className="w-6 h-6" /> {/* Increased icon size */}
@@ -57,7 +56,7 @@ const Footer = () => {
 
                     {/* Reach Us */}
                     <div className="ml-4"> {/* Added ml */}
-                        <h3 className="text-lg font-semibold mb-4">Reach Us</h3> {/* Increased mb */}
+                        <h3 className="text-lg font-semibold mb-4 text-yellow-500">Reach Us</h3> {/* Increased mb */}
                         <p className="text-sm leading-relaxed">Address: #37/1977, Infra Futura Building,<br /> Opp Bharata Mata College,<br />
                            Seaport Airport Road,<br />
                             Kakkanad,<br />
@@ -69,7 +68,7 @@ const Footer = () => {
 
             {/* Copyright */}
             <div className="text-center mt-8 border-t border-gray-300 pt-4"> {/* Increased mt and pt */}
-                Copyright © 2025, All rights reserved by <Link href="/" legacyBehavior><a className="text-[#B126B1] hover:underline">Decision Tree Solutions Pvt Ltd</a></Link>
+                Copyright © 2025, All rights reserved by <Link href="/" legacyBehavior><a className="text-yellow-500 hover:underline">Decision Tree Solutions Pvt Ltd</a></Link>
             </div>
         </footer>
     );
