@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // lib/api.ts (or lib/api.js)
 
 import axios from "axios";
@@ -12,13 +13,16 @@ interface CourseCategory {
 }
 
 export interface CourseData {
+  [x: string]: any;
   Partner?: Partner;
   CourseCategory?: CourseCategory;
   courseId: number;
   title: string;
   originalPrice: string;
   discountedPrice: string;
-  imageUrl?: string; // Assuming there is a URL for course image
+  imageUrl?: string;
+  Categories?: string;  
+  CourseDuration?: string; 
 }
 
 export const fetchCourses = async (): Promise<CourseData[]> => {
@@ -197,16 +201,28 @@ export const fetchCertificateBySlug = async (slug: string): Promise<CertificateD
   }
 };
 
+// lib/api.ts
+
 export const fetchCourseBySlug = async (slug: string) => {
   try {
-    const response = await fetch(`/api/courses/${slug}`);
+    const response = await fetch(`http://stu.globalknowledgetech.com:5002/lms/course?slug=${slug}`); // Adjust the URL if needed
     if (!response.ok) {
-      throw new Error("Failed to fetch course data");
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    return await response.json();
+    const data = await response.json();
+    // Assuming the API returns a single course or an array with a single course:
+    if (data && Array.isArray(data.courses) && data.courses.length > 0) {
+        return data.courses[0]; // Return the first course in the array
+    } else if (data && typeof data === 'object' && data.courses) {
+        return data.courses;
+    }
+      else {
+      throw new Error("Course not found or invalid API response");
+    }
+
   } catch (error) {
     console.error("Error fetching course by slug:", error);
-    throw error;
+    throw error; // Re-throw the error so the component knows it failed
   }
 };

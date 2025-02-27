@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseList from '../components/courses'
+import CourseList from '../components/courseslist'
 const CourseHome = () => {
   return (
     <div>
