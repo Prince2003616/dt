@@ -8,7 +8,7 @@ import Stu from "./components/stu/stu";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-white">
       <Header />
       <Companies />
       <CategorySection />

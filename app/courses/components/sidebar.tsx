@@ -3,6 +3,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { motion } from "framer-motion";
 
 interface SidebarProps {
   onFilter: (partnerId: number | null) => void;
@@ -74,7 +75,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ onFilter, courses, onSearch, l
   };
 
   return (
-    <div className="p-6 bg-white rounded-2xl shadow-md border border-gray-200">
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="p-6 bg-white rounded-2xl shadow-md border border-gray-200"
+    >
       <h2 className="text-xl font-bold text-gray-800 mb-6">Course Filters</h2>
 
       {/* Search Bar */}
@@ -110,26 +116,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ onFilter, courses, onSearch, l
         </h3>
         <div className="space-y-2">
           {partners.map((partner) => (
-            <button
+            <motion.button
               key={partner.id}
+              whileHover={{ scale: 1.05 }}
               onClick={() => handleFilterChange("partner", partner.id)}
               className={getButtonClasses("partner", partner.id, filters.partner)}
-
             >
               {partner.name}
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>
 
-
       {/* Reset Button */}
-      <button
+      <motion.button
+        whileHover={{ scale: 1.05 }}
         onClick={resetFilters}
         className="w-full py-3 px-4 rounded-xl border-2 border-yellow-300 text-gray-700 hover:bg-yellow-50 transition-all font-medium"
       >
         Reset All Filters
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 };

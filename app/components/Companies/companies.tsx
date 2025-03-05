@@ -1,8 +1,10 @@
 // components/PartnersSection.tsx
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import CountUp from 'react-countup';
+
+import React from "react";
+import Image from "next/image";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 interface NumberData {
   value: number;
@@ -11,23 +13,12 @@ interface NumberData {
 
 const PartnersSection = () => {
   const images = [
-    '/IBM-3.webp',
-    '/Google-Cloud-3.webp',
-    '/Microsoft-1.webp',
-    '/Tableau-2.webp',
-    '/Blockchain-1.webp',
+    "/IBM-3.webp",
+    "/Google-Cloud-3.webp",
+    "/Microsoft-1.webp",
+    "/Tableau-2.webp",
+    "/Blockchain-1.webp",
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(timerRef.current!);
-  }, [images.length]);
 
   const numberData: NumberData[] = [
     { value: 50, text: "Online Courses" },
@@ -37,59 +28,78 @@ const PartnersSection = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-white py-16">
       <div className="container mx-auto text-center">
         {/* Learning Partner */}
-        <h2 className="text-3xl font-semibold mb-8 text-yellow-500">
+        <motion.h2
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-extrabold mb-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text"
+        >
           Learning Partners
-        </h2>
-        <div className="flex justify-center space-x-8 mb-12">
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-center space-x-8 mb-12"
+        >
           <Image src="/gk.webp" alt="Global Knowledge" width={150} height={15} className="object-contain" />
-          <Image src="/gkcloud.webp" alt="GK Cloud Solutions" width={100} height={10} className="object-contain " />
-        </div>
+          <Image src="/gkcloud.webp" alt="GK Cloud Solutions" width={100} height={10} className="object-contain" />
+        </motion.div>
 
-        {/* In Association With Image Slider */}
-        <h2 className="text-3xl font-semibold mb-8 text-yellow-500">
+        {/* In Association With Infinite Marquee */}
+        <motion.h2
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-4xl font-extrabold mb-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text"
+        >
           In Association With
-        </h2>
-        <div className="flex justify-center items-center overflow-hidden py-6">
-          {images.map((image, index) => {
-            const style = {
-              transform: `translateX(${(index - currentIndex) * 100}%)`, // Adjust spacing
-              transition: 'transform 0.5s linear',
-            };
+        </motion.h2>
 
-            const className = "w-40 h-40 object-contain rounded-lg mx-4 opacity-75";
-            return (
-              <div
-                key={index}
-                className="relative"
-                style={style}
-              >
+        <div className="overflow-hidden py-6 relative w-full">
+          <motion.div
+            className="flex w-max space-x-8"
+            animate={{ x: [0, "-50%"] }}
+            transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+            style={{ display: "flex", whiteSpace: "nowrap" }}
+          >
+            {[...images, ...images].map((image, index) => (
+              <div key={index} className="relative flex-shrink-0">
                 <Image
                   src={image}
                   alt={`Partner ${index + 1}`}
                   width={200}
                   height={200}
-                  className={className}
-                  style={{ transition: 'transform 0.5s linear' }}
+                  className="w-40 h-40 object-contain rounded-lg opacity-75 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
-            );
-          })}
+            ))}
+          </motion.div>
         </div>
 
         {/* Stats Section */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8"
+        >
           {numberData.map((item, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow duration-300 hover:bg-yellow-500 hover:text-white">
-              <div className="text-4xl font-bold text-gray-800">
+            <div
+              key={index}
+              className="bg-white text-yellow-500 rounded-xl p-8 shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <div className="text-4xl font-bold">
                 <CountUp end={item.value} duration={3} />+
               </div>
-              <div className="text-gray-600 mt-2">{item.text}</div>
+              <div className="mt-2">{item.text}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.9",
     "debounce": "^2.2.0",
     "framer-motion": "^11.18.2",
     "gsap": "^3.12.7",
     "lodash.debounce": "^4.0.8",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.476.0",
     "next": "15.1.7",
     "react": "^18.3.1",

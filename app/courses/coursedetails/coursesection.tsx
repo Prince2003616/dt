@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { CheckCircle, Users, Target, Book, Lightbulb } from "lucide-react";
 
 const sections = [
@@ -40,36 +41,64 @@ const sections = [
 
 const CourseSections: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
-      {sections.map((section, index) => (
-        <div
-          key={index}
-          className="relative h-60 p-6 bg-white shadow-lg border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow"
-        >
-          {/* Icon Badge */}
-          <div className={`top-1 left-6 w-10 h-10 flex items-center justify-center rounded-full ${section.color} text-white shadow-md`}>
-            <section.icon className="w-5 h-5" />
-          </div>
+    <div className="bg-white py-16 px-6 md:px-12">
+      <motion.h2
+        className="text-4xl font-bold text-gray-900 text-center mb-12"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        Course Overview
+      </motion.h2>
 
-          {/* Section Title */}
-          <h2 className="text-xl font-semibold text-gray-800 mb-4 mt-4 flex items-center gap-2">
-            {section.title}
-          </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        {sections.map((section, index) => (
+          <motion.div
+            key={index}
+            className="relative p-8 bg-white shadow-lg border border-gray-200 rounded-xl overflow-hidden transition-all"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.15)" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            {/* Icon Badge */}
+            <div
+              className={`w-14 h-14 flex items-center justify-center rounded-full ${section.color} text-white shadow-md`}
+            >
+              <section.icon className="w-7 h-7" />
+            </div>
 
-          {/* Content List */}
-          <ul className="space-y-2">
-            {section.items.map((item, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-blue-500 mt-1" />
-                <span className="text-gray-700 leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
+            {/* Section Title */}
+            <h2 className="text-2xl font-semibold text-gray-900 mt-5 mb-4">
+              {section.title}
+            </h2>
 
-          {/* Decorative Gradient Background */}
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-green-500 to-purple-500"></div>
-        </div>
-      ))}
+            {/* Content List */}
+            <ul className="space-y-3">
+              {section.items.map((item, idx) => (
+                <motion.li
+                  key={idx}
+                  className="flex items-start gap-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1, duration: 0.4 }}
+                >
+                  <CheckCircle className="w-6 h-6 text-yellow-500 mt-1" />
+                  <span className="text-gray-700 leading-relaxed">{item}</span>
+                </motion.li>
+              ))}
+            </ul>
+
+            {/* Animated Gradient Background */}
+            <motion.div
+              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 via-blue-500 to-green-500"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            ></motion.div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 };

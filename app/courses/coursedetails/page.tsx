@@ -11,9 +11,11 @@ function Content() {
   const slug = searchParams.get('slug') as string; // Access the slug from the query
 
   return (
-    <div>
+    <div className='bg-white'>
       <Header />
+      <div className="pl-20 pr-20 pt-5 pb-5">
       <CourseDetail slug={slug} />
+      </div>
       <Footer />
     </div>
   );
