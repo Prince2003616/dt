@@ -60,10 +60,11 @@ const CourseCardItem: React.FC<CourseCardItemProps> = ({ course }) => {
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className="w-full py-2 px-4 rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white transition-all font-medium"
+          className="w-full py-2 px-4 rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white transition-all font-medium mb-2"
         >
           Add to Cart
         </button>
+
       </div>
     </motion.div>
   );

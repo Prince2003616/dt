@@ -55,12 +55,7 @@ const Header = () => {
               Courses
             </a>
           </Link>
-          <Link href="/iscience" legacyBehavior>
-            <a className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
-              iScience
-            </a>
-          </Link>
-          <Link href="/about" legacyBehavior>
+          <Link href="/about-us" legacyBehavior>
             <a className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
               About Us
             </a>

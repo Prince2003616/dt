@@ -11,6 +11,7 @@ import CourseSections from "./coursesection";
 import CourseCurriculum from "./CourseCurriculum";
 import Partner from "./partner";
 import CareerPath from "./careerpath";
+import IScienceSection from "@/app/iScience/iscience"; // Import iScience Section
 
 config.autoAddCss = false;
 
@@ -153,7 +154,12 @@ const CourseDetail: React.FC<CourseDetailProps> = ({ slug }) => {
         </motion.div>
       </motion.div>
 
-      <CareerPath />
+      {/* Conditionally Render CareerPath for AI Course */}
+      {course.Partner?.partnerName === "Artificial Intelligence" && <CareerPath />}
+
+      {/* Conditionally Render IScienceSection for iScience Course */}
+      {course.title === "iScience" && <IScienceSection />}
+
       <CourseSections />
       <Partner />
       <CourseCurriculum sections={sections} toggleSection={toggleSection} />
