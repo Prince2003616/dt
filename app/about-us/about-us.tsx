@@ -2,6 +2,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 // Motion utilities
 const staggerContainer = (staggerChildren?: number, delayChildren?: number) => ({
@@ -528,6 +529,7 @@ const AboutUs = () => {
           className="text-center mt-16 pt-12 border-t border-gray-200"
         >
           <p className="text-gray-600">Join us on our mission to revolutionize education through AI</p>
+          <Link href="./contact">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -535,6 +537,7 @@ const AboutUs = () => {
           >
             Get in Touch
           </motion.button>
+          </Link>
         </motion.div>
       </div>
     </motion.section>

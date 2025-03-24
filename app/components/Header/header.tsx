@@ -1,4 +1,4 @@
-// components/Header.tsx
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,16 +9,14 @@ const Header = () => {
       <div className="container mx-auto py-4 px-6 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" legacyBehavior>
-            <a className="flex flex-col items-start">
-              <Image
-                src="/dts.webp"
-                alt="DTS Logo"
-                width={150}
-                height={50}
-                className="mb-1"
-              />
-            </a>
+          <Link href="/">
+            <Image
+              src="/dts.webp"
+              alt="DTS Logo"
+              width={150}
+              height={50}
+              className="mb-1"
+            />
           </Link>
         </div>
 
@@ -28,7 +26,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search here..."
-              className="block w-full pl-4 pr-12 py-2 text-gray-900 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"
+              className="block w-full pl-4 pr-12 py-2 text-gray-900 bg-gray-100 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition hover:bg-gray-200"
             />
             <div className="absolute inset-y-0 right-3 flex items-center text-gray-500">
               <svg
@@ -50,15 +48,11 @@ const Header = () => {
 
         {/* Navigation Links */}
         <nav className="space-x-4 flex items-center">
-          <Link href="/courses" legacyBehavior>
-            <a className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
-              Courses
-            </a>
+          <Link href="/courses" className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
+            Courses
           </Link>
-          <Link href="/about-us" legacyBehavior>
-            <a className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
-              About Us
-            </a>
+          <Link href="/about-us" className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
+            About Us
           </Link>
 
           {/* More Dropdown */}
@@ -72,20 +66,21 @@ const Header = () => {
                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
               </svg>
             </button>
-            <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 py-2 w-32">
-              <Link href="/more" legacyBehavior>
-                <a className="block px-4 py-2 hover:bg-yellow-100">More Info</a>
+            <div className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-lg mt-2 py-2 min-w-[150px]">
+              <Link href="/more" className="block px-4 py-2 hover:bg-yellow-400 transition">
+                More Info
               </Link>
-              <Link href="/contact" legacyBehavior>
-                <a className="block px-4 py-2 hover:bg-yellow-100">Contact</a>
+              <Link href="/webinar" className="block px-4 py-2 hover:bg-yellow-400 transition">
+                Webinar
+              </Link>
+              <Link href="/contact" className="block px-4 py-2 hover:bg-yellow-400 transition">
+                Contact
               </Link>
             </div>
           </div>
 
-          <Link href="/login" legacyBehavior>
-            <a className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
-              Login
-            </a>
+          <Link href="/login" className="text-gray-800 hover:text-yellow-500 transition-all duration-200">
+            Login
           </Link>
         </nav>
       </div>
